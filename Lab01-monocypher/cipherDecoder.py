@@ -3,10 +3,11 @@ import math
 
 file = ''
 if len(sys.argv) > 2:
-    file = sys.argv[1]
-    text = open(file).read()
-    cipher = sys.argv[2]
+    cipher = sys.argv[1]
     ctext = open(cipher).read()
+    file = sys.argv[2]
+    text = open(file).read()
+
 else:
     print("error provide a filename")
 
