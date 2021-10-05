@@ -1,14 +1,23 @@
-
 import sys
 
 if len(sys.argv) > 3:
     func = sys.argv[1]
     textfile = sys.argv[2]
-    text = open(cipher).read()
+    tfile = open(textfile).read()
     keyfile = sys.argv[3]
-    key = open(file).read()
+    kfile = open(keyfile).read()
 else:
     print("provide a textfile, a keyfile, and a function")
+
+text = ""
+key = ''
+for line in tfile:
+    if line.strip():
+        text += line
+
+for line in kfile:
+    if line.strip():
+        key += line
 
 
 alphabet = "abcdefghijklmnopqrstuvwxyz"
@@ -49,7 +58,6 @@ def decode(text, key):
 if func == "encode":
     print(encode(text, key))
 elif func == "decode":
-    print(decode(text,key))
+    print(decode(text, key))
 else:
     print("provide a function")
-
