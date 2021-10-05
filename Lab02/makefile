@@ -1,5 +1,5 @@
 encode:
-	make Vigenere.py encode $(ARGS)
+	python3 Vigenere.py encode $(ARGS)
 
 decode:
-	make Vigenere.py decode $(ARGS)
+	python3 Vigenere.py decode $(ARGS)
