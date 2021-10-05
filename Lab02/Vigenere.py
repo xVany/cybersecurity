@@ -2,11 +2,11 @@
 import sys
 
 if len(sys.argv) > 3:
-    textfile = sys.argv[1]
+    func = sys.argv[1]
+    textfile = sys.argv[2]
     text = open(cipher).read()
-    keyfile = sys.argv[2]
+    keyfile = sys.argv[3]
     key = open(file).read()
-    func = sys.argv[3]
 else:
     print("provide a textfile, a keyfile, and a function")
 
