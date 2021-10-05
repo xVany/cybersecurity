@@ -33,7 +33,7 @@ def encode(text, key):
         shift = alphabet.find(letter.lower())
         cipher += shiftBy(char, shift)
         i += 1
-    return cipher
+    return cipher.upper()
 
 
 def decode(text, key):
@@ -44,7 +44,7 @@ def decode(text, key):
         shift = alphabet.find(letter.lower())
         eng += shiftBy(char, 26 - shift)
         i += 1
-    return eng
+    return eng.upper()
 
 if func == "encode":
     print(encode(text, key))
