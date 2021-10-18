@@ -7,17 +7,23 @@ inp = open(inpfile,"rb").read()[:-1] #removes the mandatory \n at the end of the
 debug = False
 
 if(debug):
-  print("mode:"+mode)
-  print("key: "+key)
-  print("inp: "+inp)
+  print("mode:", mode)
+  print("key: ", key)
+  print("inp: ", inp)
 
-keylen = key.len()
-inplen = inp.len()
+keylen = len(key) - 1
+inplen = len(inp) - 1
 
 def xor(inp, key):
+    tmp = []
     output = ''
     i = 0
     for val in inp:
-        output += val ^ key[i % keylen]
+        tmp.append(val ^ key[i % keylen])
         i += 1
-    return hex(int(output))
+    if mode == "numOut":
+        for x in tmp:
+            output += hex(x)[2:] + ' '
+        return output
+
+print(xor(inp, key))
