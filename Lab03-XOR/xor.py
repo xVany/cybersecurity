@@ -10,3 +10,14 @@ if(debug):
   print("mode:"+mode)
   print("key: "+key)
   print("inp: "+inp)
+
+keylen = key.len()
+inplen = inp.len()
+
+def xor(inp, key):
+    output = ''
+    i = 0
+    for val in inp:
+        output += val ^ key[i % keylen]
+        i += 1
+    return hex(int(output))
