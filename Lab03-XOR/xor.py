@@ -15,8 +15,7 @@ def xor(inp, key):
     output = ''
     i = 0
     for val in inp:
-        if val != 13: #ignores \n
-            tmp.append(val ^ key[i % keylen])
+        tmp.append(val ^ key[i % keylen])
         i += 1
 
     if mode == "numOut":
