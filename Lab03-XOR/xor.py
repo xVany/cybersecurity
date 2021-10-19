@@ -2,12 +2,12 @@ import sys
 mode = sys.argv[1]
 keyfile = sys.argv[2]
 inpfile = sys.argv[3]
-key = open(keyfile,"rb").read()[:-1] #removes the mandatory \n at the end of the file to support one line messages.
-inp = open(inpfile,"rb").read()[:-1] #removes the mandatory \n at the end of the file to support one line messages.
+key = open(keyfile,"rb").read()
+inp = open(inpfile,"rb").read()
 
 
-keylen = len(key) - 1
-inplen = len(inp) - 1
+keylen = len(key)
+inplen = len(inp)
 
 
 def xor(inp, key):
@@ -25,8 +25,8 @@ def xor(inp, key):
         return output
 
     if mode == "human":
-        for x in tmp:
-            output += chr(x)
-        return output
+        with open('output', 'wb') as f:
+            for x in tmp:
+                f.write(x.to_bytes(1, byteorder="little"))
 
 print(xor(inp, key))
